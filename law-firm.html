@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prestige Legal Group - Award-winning law firm specializing in personal injury, family law, criminal defense, immigration, and corporate law. Free consultation available 24/7.">
+    <title>Prestige Legal Group | Elite Law Firm in the United States</title>
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Prestige Legal Group | Trusted Elite Law Firm">
+    <meta property="og:description" content="Experience unparalleled legal excellence. Free consultation with board-certified attorneys.">
+    <meta property="og:image" content="https://picsum.photos/id/1015/1200/630">
+    <meta property="og:url" content="https://prestigelegal.group">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-bg: #0F172A;
+            --secondary-bg: #1E293B;
+            --gold: #C19A6B;
+            --accent: #D4AF37;
+            --light: #F8FAFC;
+        }
+        
+        * {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'DM Sans', system_ui, sans-serif;
+            background-color: var(--primary-bg);
+            color: #CBD5E1;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .gold-text {
+            color: var(--accent);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #D4AF37, #C19A6B);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .practice-card {
+            background: var(--secondary-bg);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .practice-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37, #C19A6B);
+            color: #0F172A;
+            font-weight: 600;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 50px;
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+        
+        .testimonial-card {
+            background: var(--secondary-bg);
+        }
+        
+        .nav-link {
+            color: #CBD5E1 !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #D4AF37 !important;
+        }
+        
+        .sticky-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: var(--accent);
+            color: #0F172A;
+            border-radius: 50px;
+            padding: 12px 28px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 text-white d-flex align-items-center" href="#">
+                <span class="gold-text me-2">◉</span> PRESTIGE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#practice">Practice Areas</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#attorneys">Attorneys</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#results">Results</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-3">
+                        <a href="#consultation" class="btn btn-gold btn-sm">FREE CONSULTATION</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero text-center">
+        <div class="container h-100 d-flex flex-column justify-content-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div data-aos="fade-up">
+                        <span class="badge bg-warning text-dark mb-3 px-4 py-2 fs-6">EST. 2008 • BOARD CERTIFIED ATTORNEYS</span>
+                        <h1 class="display-3 fw-bold text-white mb-4">
+                            Justice Served with <span class="gold-text">Excellence</span>
+                        </h1>
+                        <p class="lead fs-4 mb-5 text-light col-lg-8 mx-auto">
+                            Prestigious representation for individuals and businesses. 
+                            Over 2,500 cases successfully resolved with multimillion-dollar verdicts and settlements.
+                        </p>
+                        
+                        <div class="d-flex flex-wrap justify-content-center gap-3">
+                            <a href="#consultation" class="btn btn-gold btn-lg px-5 py-3 fs-5 shadow">GET FREE CONSULTATION</a>
+                            <a href="tel:+15551234567" class="btn btn-outline-light btn-lg px-5 py-3 fs-5">
+                                <i class="fas fa-phone me-2"></i> (555) 123-4567
+                            </a>
+                        </div>
+                        
+                        <div class="mt-5 d-flex justify-content-center gap-5 text-start">
+                            <div>
+                                <div class="text-white fs-2 fw-bold">98%</div>
+                                <div class="small text-light">Client Satisfaction</div>
+                            </div>
+                            <div>
+                                <div class="text-white fs-2 fw-bold">$185M+</div>
+                                <div class="small text-light">Recovered for Clients</div>
+                            </div>
+                            <div>
+                                <div class="text-white fs-2 fw-bold">75+</div>
+                                <div class="small text-light">Years Combined Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Trust bar -->
+        <div class="position-absolute bottom-0 start-0 end-0 bg-black bg-opacity-75 py-3">
+            <div class="container">
+                <div class="row align-items-center justify-content-center g-4 text-center">
+                    <div class="col-auto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/ABA_Logo.svg/2560px-ABA_Logo.svg.png" alt="ABA" height="28"></div>
+                    <div class="col-auto"><span class="text-light">Super Lawyers</span></div>
+                    <div class="col-auto"><span class="text-light">AV Preeminent</span></div>
+                    <div class="col-auto"><span class="text-light">Martindale-Hubbell</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CREDIBILITY -->
+    <section class="py-5 bg-black">
+        <div class="container">
+            <div class="row text-center g-5" data-aos="fade-up">
+                <div class="col-md-3 col-6">
+                    <div class="stat-number" data-count="18">0</div>
+                    <p class="mb-0 text-light">Years of Excellence</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-number" data-count="2500">0</div>
+                    <p class="mb-0 text-light">Cases Handled</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-number" data-count="185">0</div>
+                    <p class="mb-0 text-light">Million Recovered</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-number" data-count="42">0</div>
+                    <p class="mb-0 text-light">Attorneys & Staff</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-5" style="background: var(--secondary-bg);">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="https://picsum.photos/id/1016/800/600" class="img-fluid rounded shadow" alt="Prestige Legal Group Office">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <span class="badge bg-warning text-dark">SINCE 2008</span>
+                    <h2 class="display-5 fw-bold mb-4">A Legacy of Legal Excellence</h2>
+                    <p class="lead mb-4">
+                        Prestige Legal Group was founded on the principle that every client deserves world-class representation delivered with compassion and integrity.
+                    </p>
+                    <p>
+                        Our team of highly credentialed attorneys has secured landmark victories across multiple practice areas. We combine aggressive advocacy with strategic counsel to achieve the best possible outcomes.
+                    </p>
+                    <div class="mt-5">
+                        <a href="#" class="btn btn-outline-light">Meet Our Leadership →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRACTICE AREAS -->
+    <section id="practice" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-dark text-warning px-4 py-2">EXPERTISE</span>
+                <h2 class="display-5 fw-bold gold-text">Practice Areas</h2>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="practice-card h-100 p-5 rounded-4 text-center">
+                        <i class="fas fa-car-crash fa-3x mb-4 gold-text"></i>
+                        <h4>Personal Injury</h4>
+                        <p class="text-light">Maximum compensation for accident victims and catastrophic injuries.</p>
+                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="practice-card h-100 p-5 rounded-4 text-center">
+                        <i class="fas fa-users fa-3x mb-4 gold-text"></i>
+                        <h4>Family Law</h4>
+                        <p class="text-light">Divorce, custody, support, and prenuptial agreements handled with sensitivity.</p>
+                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="practice-card h-100 p-5 rounded-4 text-center">
+                        <i class="fas fa-gavel fa-3x mb-4 gold-text"></i>
+                        <h4>Criminal Defense</h4>
+                        <p class="text-light">Aggressive defense against all felony and misdemeanor charges.</p>
+                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Additional cards (truncated for brevity but full in real template) -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="practice-card h-100 p-5 rounded-4 text-center">
+                        <i class="fas fa-passport fa-3x mb-4 gold-text"></i>
+                        <h4>Immigration Law</h4>
+                        <p class="text-light">Visas, green cards, deportation defense, and citizenship applications.</p>
+                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="practice-card h-100 p-5 rounded-4 text-center">
+                        <i class="fas fa-briefcase fa-3x mb-4 gold-text"></i>
+                        <h4>Business &amp; Corporate</h4>
+                        <p class="text-light">Contracts, mergers, compliance, and business litigation.</p>
+                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="practice-card h-100 p-5 rounded-4 text-center">
+                        <i class="fas fa-home fa-3x mb-4 gold-text"></i>
+                        <h4>Real Estate Law</h4>
+                        <p class="text-light">Transactions, disputes, landlord-tenant, and property development.</p>
+                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="py-5" style="background: #0F172A;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <h2 class="display-5 fw-bold">Why Clients Trust Prestige Legal Group</h2>
+                    <div class="mt-4">
+                        <div class="d-flex mb-4">
+                            <div class="flex-shrink-0 me-4">
+                                <span class="badge bg-success rounded-circle p-3">1</span>
+                            </div>
+                            <div>
+                                <h5>Proven Results</h5>
+                                <p class="text-light">Consistent multimillion-dollar verdicts and settlements.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <div class="flex-shrink-0 me-4">
+                                <span class="badge bg-success rounded-circle p-3">2</span>
+                            </div>
+                            <div>
+                                <h5>Personalized Strategy</h5>
+                                <p class="text-light">Every case receives a custom-tailored legal approach.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="flex-shrink-0 me-4">
+                                <span class="badge bg-success rounded-circle p-3">3</span>
+                            </div>
+                            <div>
+                                <h5>Transparent Communication</h5>
+                                <p class="text-light">You are always informed. No hidden fees. No surprises.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="p-4 border border-warning border-opacity-25 rounded-3 h-100">
+                                <h5 class="gold-text">Board Certified</h5>
+                                <p>Our attorneys hold the highest professional certifications in their fields.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 border border-warning border-opacity-25 rounded-3 h-100">
+                                <h5 class="gold-text">24/7 Availability</h5>
+                                <p>Emergency legal support when you need it most.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ATTORNEYS -->
+    <section id="attorneys" class="py-5 bg-black">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Our Distinguished Attorneys</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in">
+                    <div class="card bg-transparent border-0">
+                        <img src="https://picsum.photos/id/64/400/400" class="card-img-top rounded-4" alt="Elena Vasquez">
+                        <div class="card-body text-center">
+                            <h5 class="gold-text">Elena M. Vasquez</h5>
+                            <p class="text-light">Managing Partner • Personal Injury</p>
+                            <p class="small">Harvard Law • 19 years • AV Preeminent Rating</p>
+                            <a href="#" class="btn btn-sm btn-outline-warning">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- More attorney cards would go here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE RESULTS -->
+    <section id="results" class="py-5" style="background: var(--secondary-bg);">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5">Notable Results</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="p-5">
+                        <div class="display-4 gold-text fw-bold">$42.8M</div>
+                        <p class="text-light">Wrongful Death Verdict</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-5">
+                        <div class="display-4 gold-text fw-bold">$18.5M</div>
+                        <p class="text-light">Catastrophic Injury Settlement</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-5">
+                        <div class="display-4 gold-text fw-bold">Not Guilty</div>
+                        <p class="text-light">Federal Fraud Charges</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5 gold-text">Our Proven Legal Process</h2>
+            <div class="row text-center">
+                <div class="col-md-2 col-6 mb-5">
+                    <div class="rounded-circle border border-warning border-3 mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px;">
+                        <span class="fs-2 fw-bold">01</span>
+                    </div>
+                    <h6>Free Consultation</h6>
+                </div>
+                <div class="col-md-2 col-6 mb-5">
+                    <div class="rounded-circle border border-warning border-3 mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px;">
+                        <span class="fs-2 fw-bold">02</span>
+                    </div>
+                    <h6>Case Investigation</h6>
+                </div>
+                <!-- Continue for all 5 steps -->
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-5 bg-black">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5">What Our Clients Say</h2>
+            <div id="testimonialCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card p-5 rounded-4 text-center">
+                                    <div class="mb-4">★★★★★</div>
+                                    <p class="fs-5 fst-italic">"They fought for me like family. Recovered more than I ever imagined possible."</p>
+                                    <div class="mt-4">
+                                        <strong>Michael R.</strong><br>
+                                        <small class="text-light">Car Accident Victim</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONSULTATION -->
+    <section id="consultation" class="py-5" style="background: linear-gradient(135deg, #1E293B, #0F172A);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card bg-dark border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <h2 class="text-center mb-4">Schedule Your Free Consultation</h2>
+                            <form id="consultForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control bg-transparent border-light text-light" placeholder="Full Name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="tel" class="form-control bg-transparent border-light text-light" placeholder="Phone Number" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="form-control bg-transparent border-light text-light" rows="4" placeholder="Brief description of your legal matter"></textarea>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-gold btn-lg px-5">REQUEST CONSULTATION NOW</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <!-- FAQ items here -->
+                <div class="accordion-item bg-transparent border-warning border-opacity-25">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                            Is the initial consultation really free?
+                        </button>
+                    </h2>
+                    <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-light">
+                            Yes. We offer completely complimentary case evaluations with no obligation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4 class="gold-text">Prestige Legal Group</h4>
+                    <p class="small">Elite legal representation across the United States.</p>
+                    <p class="small">(555) 123-4567<br>hello@prestigelegal.group</p>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="mb-3">Practice Areas</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-light text-decoration-none">Personal Injury</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Family Law</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-end">
+                    <p class="small">© 2026 Prestige Legal Group. All Rights Reserved.<br>
+                    <a href="#" class="text-light text-decoration-none">Privacy Policy</a> • 
+                    <a href="#" class="text-light text-decoration-none">Attorney Advertising</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY CTA -->
+    <a href="#consultation" class="sticky-cta d-none d-lg-flex align-items-center gap-2 shadow">
+        <i class="fas fa-calendar-check"></i>
+        <span>FREE CONSULTATION</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+        
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                let count = 0;
+                const increment = target / 60;
+                
+                const timer = setInterval(() => {
+                    count += increment;
+                    if (count >= target) {
+                        counter.textContent = target + (target > 100 ? 'M+' : '+');
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(count);
+                    }
+                }, 30);
+            });
+        }
+        
+        // Trigger counters when scrolled into view
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                animateCounters();
+            }
+        });
+        
+        // Form submission simulation
+        document.getElementById('consultForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Thank you! Our legal team will contact you within 15 minutes.");
+        });
+        
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href').length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+        
+        console.log('%cPrestige Legal Group Template Loaded Successfully', 'color:#D4AF37; font-size:14px; font-family:monospace');
+    </script>
+</body>
+</html>
