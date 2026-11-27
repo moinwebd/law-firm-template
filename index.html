@@ -5,639 +5,961 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Prestige Legal Group - Award-winning law firm specializing in personal injury, family law, criminal defense, immigration, and corporate law. Free consultation available 24/7.">
     <title>Prestige Legal Group | Elite Law Firm in the United States</title>
-    
+
     <!-- Open Graph / Social -->
     <meta property="og:title" content="Prestige Legal Group | Trusted Elite Law Firm">
     <meta property="og:description" content="Experience unparalleled legal excellence. Free consultation with board-certified attorneys.">
     <meta property="og:image" content="https://picsum.photos/id/1015/1200/630">
     <meta property="og:url" content="https://prestigelegal.group">
     <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
+    <!-- Fonts: Fraunces (serif display) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
+        /* ============ Tokens ============ */
         :root {
-            --primary-bg: #0F172A;
-            --secondary-bg: #1E293B;
-            --gold: #C19A6B;
-            --accent: #D4AF37;
-            --light: #F8FAFC;
+            --ivory: #FAFAF7;
+            --white: #FFFFFF;
+            --navy: #0F2A43;
+            --navy-deep: #0B1F31;
+            --navy-soft: #16324E;
+            --gold: #B9975B;
+            --gold-soft: #C9AC72;
+            --ink: #1E2A33;
+            --muted: #5C6B78;
+            --line: #E5E1D8;
+            --line-navy: rgba(255, 255, 255, .14);
+            --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+            --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --wrap: 1120px;
+            --radius: 10px;
         }
-        
-        * {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
+
+        /* ============ Base ============ */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 84px; }
         body {
-            font-family: 'DM Sans', system_ui, sans-serif;
-            background-color: var(--primary-bg);
-            color: #CBD5E1;
+            margin: 0;
+            font-family: var(--sans);
+            font-size: 1rem;
             line-height: 1.7;
-            overflow-x: hidden;
+            color: var(--ink);
+            background: var(--ivory);
+            -webkit-font-smoothing: antialiased;
         }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 600;
-            letter-spacing: -0.02em;
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: var(--navy); }
+        h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; color: var(--navy); margin: 0 0 .6em; }
+        p { margin: 0 0 1em; }
+        p:last-child { margin-bottom: 0; }
+        .container { width: min(var(--wrap), 100% - 3rem); margin-inline: auto; }
+        section { padding: 6rem 0; }
+        :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+
+        .skip-link {
+            position: absolute; left: 1rem; top: -4rem; z-index: 200;
+            background: var(--navy); color: #fff; padding: .6rem 1rem; border-radius: 0 0 6px 6px;
+            transition: top .2s ease; text-decoration: none; font-size: .9rem;
         }
-        
-        .navbar {
-            background-color: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-        }
-        
-        .hero {
-            height: 100vh;
-            min-height: 700px;
-            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-        
-        .gold-text {
-            color: var(--accent);
-        }
-        
-        .section-title {
-            position: relative;
+        .skip-link:focus { top: 0; color: #fff; }
+
+        /* Eyebrow + section headings */
+        .eyebrow {
             display: inline-block;
+            font-size: .72rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 1rem;
         }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(to right, #D4AF37, #C19A6B);
-            bottom: -10px;
-            left: 0;
+        .section-head { max-width: 640px; margin-bottom: 3rem; }
+        .section-head.center { margin-inline: auto; text-align: center; }
+        .section-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin-bottom: .5rem; }
+        .section-head h2::after {
+            content: ""; display: block; width: 56px; height: 2px;
+            background: var(--gold); margin-top: 1.1rem;
         }
-        
+        .section-head.center h2::after { margin-inline: auto; }
+        .section-head p { color: var(--muted); margin: 0; }
+        .on-navy h2, .on-navy h3 { color: #fff; }
+        .on-navy p, .on-navy .lede { color: rgba(255, 255, 255, .78); }
+
+        /* Reveal-on-scroll (replaces AOS) */
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+
+        /* ============ Header / nav ============ */
+        .site-header {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--navy);
+            border-bottom: 1px solid rgba(185, 151, 91, .35);
+        }
+        .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; }
+        .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: #fff; }
+        .brand-mark {
+            width: 34px; height: 34px; flex: none; display: grid; place-items: center;
+            border: 1px solid var(--gold); border-radius: 50%;
+            color: var(--gold); font-family: var(--serif); font-size: 1.05rem;
+        }
+        .brand-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: .14em; }
+        .brand-name em { font-style: normal; color: var(--gold-soft); }
+        .site-nav ul { display: flex; align-items: center; gap: .25rem; list-style: none; margin: 0; padding: 0; }
+        .site-nav a {
+            display: block; padding: .55rem .85rem; border-radius: 6px;
+            color: rgba(255, 255, 255, .82); text-decoration: none; font-size: .92rem; font-weight: 500;
+        }
+        .site-nav a:hover { color: #fff; background: rgba(255, 255, 255, .06); }
+        .nav-cta {
+            background: var(--gold) !important; color: var(--navy-deep) !important; font-weight: 600 !important;
+            padding: .6rem 1.15rem !important; margin-left: .5rem; letter-spacing: .04em; font-size: .82rem !important;
+        }
+        .nav-cta:hover { background: var(--gold-soft) !important; }
+        .nav-toggle {
+            display: none; background: none; border: 1px solid var(--line-navy); border-radius: 6px;
+            color: #fff; width: 42px; height: 42px; cursor: pointer; align-items: center; justify-content: center;
+        }
+        .nav-toggle svg { width: 20px; height: 20px; }
+
+        /* ============ Buttons ============ */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+            font-family: var(--sans); font-weight: 600; font-size: .95rem; letter-spacing: .03em;
+            text-decoration: none; cursor: pointer; border-radius: 6px;
+            padding: .95rem 1.9rem; border: 1px solid transparent;
+            transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+        }
+        .btn:active { transform: translateY(1px); }
+        .btn-gold { background: var(--gold); color: var(--navy-deep); }
+        .btn-gold:hover { background: var(--gold-soft); }
+        .btn-outline-light { background: transparent; border-color: rgba(255, 255, 255, .55); color: #fff; }
+        .btn-outline-light:hover { border-color: #fff; background: rgba(255, 255, 255, .08); }
+        .btn-outline-navy { background: transparent; border-color: var(--navy); color: var(--navy); }
+        .btn-outline-navy:hover { background: var(--navy); color: #fff; }
+        .btn svg { width: 17px; height: 17px; flex: none; }
+
+        /* ============ Hero ============ */
+        .hero {
+            background:
+                linear-gradient(rgba(11, 31, 49, .88), rgba(15, 42, 67, .86)),
+                url('https://picsum.photos/id/1015/2000/1200') center / cover no-repeat;
+            color: #fff; text-align: center; padding: 7.5rem 0 0;
+        }
+        .hero .eyebrow { color: var(--gold-soft); border: 1px solid rgba(185, 151, 91, .55); border-radius: 999px; padding: .45rem 1.1rem; letter-spacing: .16em; }
+        .hero h1 { color: #fff; font-size: clamp(2.6rem, 5.4vw, 4.1rem); margin-bottom: 1.2rem; }
+        .hero h1 em { font-style: italic; color: var(--gold-soft); }
+        .hero .lede { max-width: 620px; margin: 0 auto 2.4rem; font-size: 1.15rem; color: rgba(255, 255, 255, .85); }
+        .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; margin-bottom: 3.4rem; }
+        .hero-stats {
+            display: flex; justify-content: center; gap: 3.5rem; flex-wrap: wrap;
+            padding-bottom: 4.5rem;
+        }
+        .hero-stats .stat b { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.9rem; color: #fff; line-height: 1.1; }
+        .hero-stats .stat span { font-size: .85rem; color: rgba(255, 255, 255, .68); }
+        .trust-bar {
+            border-top: 1px solid var(--line-navy);
+            background: rgba(11, 31, 49, .55);
+            padding: 1.15rem 0;
+        }
+        .trust-bar .container { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.4rem 2.4rem; }
+        .trust-bar img { height: 26px; width: auto; opacity: .92; }
+        .trust-bar span { color: rgba(255, 255, 255, .72); font-size: .88rem; letter-spacing: .06em; }
+        .trust-bar .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
+
+        /* ============ Stats bar ============ */
+        .stats-bar { background: var(--white); border-bottom: 1px solid var(--line); padding: 3.2rem 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+        .stats-grid .num { font-family: var(--serif); font-weight: 500; font-size: clamp(2rem, 3.4vw, 2.7rem); color: var(--navy); line-height: 1.1; }
+        .stats-grid .lbl { font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: .35rem; }
+        .stats-grid > div + div { border-left: 1px solid var(--line); }
+
+        /* ============ About ============ */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-media { position: relative; }
+        .about-media::after {
+            content: ""; position: absolute; inset: 0; transform: translate(18px, 18px);
+            border: 1px solid var(--gold); border-radius: var(--radius); z-index: 0; pointer-events: none;
+        }
+        .about-media img { position: relative; z-index: 1; border-radius: var(--radius); width: 100%; }
+        .about-copy .lede { font-size: 1.12rem; color: var(--ink); }
+        .about-copy p { color: var(--muted); }
+        .about-copy .btn { margin-top: 1.2rem; }
+
+        /* ============ Practice areas ============ */
+        .practice { background: var(--white); border-block: 1px solid var(--line); }
+        .practice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .practice-card {
-            background: var(--secondary-bg);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: all 0.4s ease;
+            background: var(--ivory); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 2.2rem 1.9rem; display: flex; flex-direction: column;
+            transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
         }
-        
-        .practice-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--accent);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        .practice-card:hover { border-color: var(--gold); box-shadow: 0 14px 34px rgba(15, 42, 67, .08); transform: translateY(-3px); }
+        .practice-icon {
+            width: 52px; height: 52px; border: 1px solid var(--gold); border-radius: 50%;
+            display: grid; place-items: center; margin-bottom: 1.4rem; color: var(--gold);
         }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent);
+        .practice-icon svg { width: 24px; height: 24px; }
+        .practice-card h3 { font-size: 1.35rem; margin-bottom: .5rem; }
+        .practice-card p { color: var(--muted); font-size: .96rem; flex: 1; }
+        .practice-card .more {
+            margin-top: 1.2rem; font-size: .9rem; font-weight: 600; color: var(--navy);
+            text-decoration: none; display: inline-flex; align-items: center; gap: .4rem;
         }
-        
-        .btn-gold {
-            background: linear-gradient(135deg, #D4AF37, #C19A6B);
-            color: #0F172A;
-            font-weight: 600;
-            border: none;
-            padding: 14px 36px;
-            border-radius: 50px;
+        .practice-card .more:hover { color: var(--gold); }
+        .practice-card .more::after { content: "→"; transition: transform .2s ease; }
+        .practice-card .more:hover::after { transform: translateX(3px); }
+
+        /* ============ Why choose us ============ */
+        .why { background: var(--navy); color: #fff; }
+        .why-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 4rem; align-items: start; }
+        .why-list { list-style: none; margin: 2rem 0 0; padding: 0; }
+        .why-list li { display: flex; gap: 1.3rem; padding: 1.4rem 0; border-top: 1px solid var(--line-navy); }
+        .why-list li:last-child { border-bottom: 1px solid var(--line-navy); }
+        .why-list .n { font-family: var(--serif); font-size: 1.5rem; color: var(--gold-soft); line-height: 1.2; flex: none; }
+        .why-list h3 { color: #fff; font-size: 1.2rem; margin-bottom: .25rem; }
+        .why-list p { color: rgba(255, 255, 255, .72); font-size: .95rem; margin: 0; }
+        .why-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+        .why-card {
+            border: 1px solid var(--line-navy); border-radius: var(--radius);
+            padding: 1.8rem 1.6rem; background: rgba(255, 255, 255, .03);
         }
-        
-        .btn-gold:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        .why-card h3 { color: #fff; font-size: 1.15rem; margin-bottom: .4rem; }
+        .why-card p { color: rgba(255, 255, 255, .72); font-size: .94rem; margin: 0; }
+
+        /* ============ Attorneys ============ */
+        .attorney-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .attorney-card {
+            background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+            overflow: hidden; text-align: center;
+            transition: border-color .25s ease, box-shadow .25s ease;
         }
-        
-        .testimonial-card {
-            background: var(--secondary-bg);
+        .attorney-card:hover { border-color: var(--gold); box-shadow: 0 14px 34px rgba(15, 42, 67, .08); }
+        .attorney-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+        .attorney-card .body { padding: 1.7rem 1.4rem 1.9rem; }
+        .attorney-card h3 { font-size: 1.3rem; margin-bottom: .3rem; }
+        .attorney-card .role { color: var(--gold); font-size: .9rem; font-weight: 600; margin-bottom: .4rem; }
+        .attorney-card .cred { color: var(--muted); font-size: .88rem; margin-bottom: 1.1rem; }
+        .btn-sm { padding: .55rem 1.15rem; font-size: .85rem; }
+
+        /* ============ Results ============ */
+        .results { background: var(--white); border-block: 1px solid var(--line); }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
+        .results-grid .amount { font-family: var(--serif); font-weight: 500; font-size: clamp(2.1rem, 3.6vw, 2.9rem); color: var(--navy); line-height: 1.1; }
+        .results-grid .amount::after { content: ""; display: block; width: 40px; height: 2px; background: var(--gold); margin: 1rem auto 0; }
+        .results-grid p { color: var(--muted); margin-top: 1rem; }
+
+        /* ============ Process ============ */
+        .process-steps { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; text-align: center; }
+        .process-step { width: 200px; position: relative; }
+        .process-step + .process-step::before {
+            content: ""; position: absolute; left: -3.4rem; top: 45px; width: 2.8rem; height: 1px; background: var(--line);
         }
-        
-        .nav-link {
-            color: #CBD5E1 !important;
-            font-weight: 500;
+        .process-step .circle {
+            width: 90px; height: 90px; margin: 0 auto 1.1rem; border: 1px solid var(--gold);
+            border-radius: 50%; display: grid; place-items: center;
+            font-family: var(--serif); font-size: 1.6rem; color: var(--navy); background: var(--white);
         }
-        
-        .nav-link:hover, .nav-link.active {
-            color: #D4AF37 !important;
+        .process-step h3 { font-size: 1.15rem; margin: 0; }
+
+        /* ============ Testimonials ============ */
+        .testimonials { background: var(--ivory); }
+        .t-carousel { max-width: 760px; margin: 0 auto; position: relative; }
+        .t-viewport { overflow: hidden; border-radius: var(--radius); }
+        .t-track { display: flex; transition: transform .45s ease; }
+        .t-slide { flex: 0 0 100%; min-width: 0; }
+        .t-card {
+            background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 3rem 2.5rem; text-align: center;
         }
-        
+        .t-stars { color: var(--gold); letter-spacing: .3em; font-size: 1rem; margin-bottom: 1.3rem; }
+        .t-quote { font-family: var(--serif); font-style: italic; font-size: clamp(1.25rem, 2.4vw, 1.55rem); line-height: 1.5; color: var(--navy); margin-bottom: 1.5rem; }
+        .t-who strong { display: block; color: var(--navy); font-weight: 600; }
+        .t-who span { color: var(--muted); font-size: .9rem; }
+        .t-controls { display: flex; align-items: center; justify-content: center; gap: 1.4rem; margin-top: 1.8rem; }
+        .t-arrow {
+            width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line);
+            background: var(--white); color: var(--navy); cursor: pointer; font-size: 1.1rem; line-height: 1;
+            display: grid; place-items: center; transition: border-color .2s ease, color .2s ease;
+        }
+        .t-arrow:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); }
+        .t-arrow:disabled { opacity: .35; cursor: default; }
+        .t-dots { display: flex; gap: .5rem; }
+        .t-dot {
+            width: 9px; height: 9px; border-radius: 50%; border: none; padding: 0;
+            background: #D8D3C8; cursor: pointer;
+        }
+        .t-dot[aria-current="true"] { background: var(--gold); }
+
+        /* ============ Consultation form ============ */
+        .consult-wrap { max-width: 720px; margin: 0 auto; }
+        .consult-card {
+            background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 3rem 2.8rem; box-shadow: 0 20px 50px rgba(15, 42, 67, .07);
+        }
+        .consult-card .section-head { margin-bottom: 2rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
+        .field { display: flex; flex-direction: column; }
+        .field.full { grid-column: 1 / -1; }
+        .field label { font-size: .86rem; font-weight: 600; color: var(--navy); margin-bottom: .45rem; }
+        .field label .req { color: var(--gold); }
+        .field input, .field textarea {
+            font: inherit; font-size: .97rem; color: var(--ink);
+            border: 1px solid var(--line); border-radius: 6px; background: var(--ivory);
+            padding: .85rem 1rem; width: 100%;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+        .field textarea { resize: vertical; min-height: 120px; }
+        .field input:focus, .field textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(185, 151, 91, .18); background: var(--white); }
+        .field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: #B3261E; }
+        .field-error { display: none; color: #B3261E; font-size: .83rem; margin-top: .35rem; }
+        .field-error.show { display: block; }
+        .form-note { text-align: center; color: var(--muted); font-size: .86rem; margin-top: 1.1rem; }
+        .form-submit { text-align: center; margin-top: 1.8rem; }
+        .form-success { text-align: center; padding: 2rem 0 .5rem; }
+        .form-success .check {
+            width: 60px; height: 60px; margin: 0 auto 1.4rem; border: 1px solid var(--gold);
+            border-radius: 50%; display: grid; place-items: center; color: var(--gold); font-size: 1.6rem;
+        }
+        .form-success h3 { font-size: 1.6rem; }
+        .form-success p { color: var(--muted); }
+        .form-success .demo-note { font-size: .85rem; color: var(--muted); margin-top: 1.2rem; }
+        [hidden] { display: none !important; }
+
+        /* ============ FAQ ============ */
+        .faq { background: var(--white); border-top: 1px solid var(--line); }
+        .faq-list { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--line); }
+        .faq-item { border-bottom: 1px solid var(--line); }
+        .faq-item h3 { margin: 0; }
+        .faq-q {
+            width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+            background: none; border: none; padding: 1.35rem .25rem; cursor: pointer; text-align: left;
+            font-family: var(--serif); font-size: 1.18rem; font-weight: 500; color: var(--navy);
+        }
+        .faq-q:hover { color: var(--gold); }
+        .faq-icon {
+            flex: none; width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 50%;
+            display: grid; place-items: center; font-family: var(--sans); font-size: 1.05rem; color: var(--gold);
+            transition: transform .25s ease, border-color .25s ease;
+        }
+        .faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--gold); }
+        .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+        .faq-item.open .faq-a { grid-template-rows: 1fr; }
+        .faq-a-inner { overflow: hidden; }
+        .faq-a p { color: var(--muted); padding: 0 .25rem 1.4rem; margin: 0; }
+
+        /* ============ Footer ============ */
+        .site-footer { background: var(--navy-deep); color: rgba(255, 255, 255, .75); padding: 4.5rem 0 2.5rem; }
+        .footer-grid { display: grid; grid-template-columns: 4fr 2fr 6fr; gap: 3rem; padding-bottom: 2.8rem; }
+        .site-footer h4 { color: #fff; font-size: 1.25rem; margin-bottom: .7rem; }
+        .site-footer h5 { color: #fff; font-family: var(--sans); font-size: .85rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 1rem; }
+        .site-footer p { font-size: .92rem; }
+        .site-footer a { color: rgba(255, 255, 255, .75); text-decoration: none; }
+        .site-footer a:hover { color: var(--gold-soft); }
+        .footer-links { list-style: none; margin: 0; padding: 0; }
+        .footer-links li { margin-bottom: .55rem; font-size: .92rem; }
+        .footer-base {
+            border-top: 1px solid var(--line-navy); padding-top: 1.6rem;
+            display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+            font-size: .85rem; color: rgba(255, 255, 255, .55);
+        }
+        .footer-base a { color: rgba(255, 255, 255, .75); }
+
+        /* ============ Sticky CTA ============ */
         .sticky-cta {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            background: var(--accent);
-            color: #0F172A;
-            border-radius: 50px;
-            padding: 12px 28px;
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+            position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 90;
+            display: inline-flex; align-items: center; gap: .55rem;
+            background: var(--navy); color: #fff; text-decoration: none;
+            font-size: .82rem; font-weight: 600; letter-spacing: .05em;
+            padding: .8rem 1.25rem; border: 1px solid var(--gold); border-radius: 999px;
+            box-shadow: 0 10px 28px rgba(11, 31, 49, .28);
+            transition: background .2s ease;
+        }
+        .sticky-cta:hover { background: var(--navy-soft); color: #fff; }
+        .sticky-cta svg { width: 16px; height: 16px; color: var(--gold-soft); }
+
+        /* ============ Responsive ============ */
+        @media (max-width: 960px) {
+            .about-grid, .why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .practice-grid, .attorney-grid { grid-template-columns: repeat(2, 1fr); }
+            .results-grid { gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid > div:last-child { grid-column: 1 / -1; }
+        }
+        @media (max-width: 860px) {
+            .nav-toggle { display: inline-flex; }
+            .site-nav {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--navy); border-top: 1px solid var(--line-navy);
+                padding: .6rem 1.5rem 1.2rem;
+            }
+            .site-nav.open { display: block; }
+            .site-nav ul { flex-direction: column; align-items: stretch; gap: .15rem; }
+            .site-nav a { padding: .7rem .4rem; }
+            .nav-cta { margin: .6rem 0 0; text-align: center; }
+            section { padding: 4.2rem 0; }
+            .hero { padding-top: 5.5rem; }
+            .hero-stats { gap: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
+            .stats-grid > div:nth-child(3) { border-left: none; }
+            .why-cards { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .consult-card { padding: 2.2rem 1.5rem; }
+            .t-card { padding: 2.2rem 1.4rem; }
+        }
+        @media (max-width: 600px) {
+            .practice-grid, .attorney-grid, .results-grid { grid-template-columns: 1fr; }
+            .process-steps { gap: 2.2rem; }
+            .process-step + .process-step::before { display: none; }
+            .sticky-cta { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .t-track { transition: none; }
+            * { transition-duration: .01ms !important; }
         }
     </style>
 </head>
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg fixed-top py-3">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- ============ Header / nav ============ -->
+    <header class="site-header">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3 text-white d-flex align-items-center" href="#">
-                <span class="gold-text me-2">◉</span> PRESTIGE
+            <a class="brand" href="#" aria-label="Prestige Legal Group — home">
+                <span class="brand-mark" aria-hidden="true">§</span>
+                <span class="brand-name">PRESTIGE<em>&nbsp;LEGAL GROUP</em></span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#practice">Practice Areas</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#attorneys">Attorneys</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#results">Results</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
-                    <li class="nav-item ms-3">
-                        <a href="#consultation" class="btn btn-gold btn-sm">FREE CONSULTATION</a>
-                    </li>
+            <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#practice">Practice Areas</a></li>
+                    <li><a href="#attorneys">Attorneys</a></li>
+                    <li><a href="#results">Results</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#consultation" class="nav-cta">FREE CONSULTATION</a></li>
                 </ul>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- HERO -->
-    <section class="hero text-center">
-        <div class="container h-100 d-flex flex-column justify-content-center">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div data-aos="fade-up">
-                        <span class="badge bg-warning text-dark mb-3 px-4 py-2 fs-6">EST. 2008 • BOARD CERTIFIED ATTORNEYS</span>
-                        <h1 class="display-3 fw-bold text-white mb-4">
-                            Justice Served with <span class="gold-text">Excellence</span>
-                        </h1>
-                        <p class="lead fs-4 mb-5 text-light col-lg-8 mx-auto">
-                            Prestigious representation for individuals and businesses. 
-                            Over 2,500 cases successfully resolved with multimillion-dollar verdicts and settlements.
-                        </p>
-                        
-                        <div class="d-flex flex-wrap justify-content-center gap-3">
-                            <a href="#consultation" class="btn btn-gold btn-lg px-5 py-3 fs-5 shadow">GET FREE CONSULTATION</a>
-                            <a href="tel:+15551234567" class="btn btn-outline-light btn-lg px-5 py-3 fs-5">
-                                <i class="fas fa-phone me-2"></i> (555) 123-4567
-                            </a>
-                        </div>
-                        
-                        <div class="mt-5 d-flex justify-content-center gap-5 text-start">
-                            <div>
-                                <div class="text-white fs-2 fw-bold">98%</div>
-                                <div class="small text-light">Client Satisfaction</div>
-                            </div>
-                            <div>
-                                <div class="text-white fs-2 fw-bold">$185M+</div>
-                                <div class="small text-light">Recovered for Clients</div>
-                            </div>
-                            <div>
-                                <div class="text-white fs-2 fw-bold">75+</div>
-                                <div class="small text-light">Years Combined Experience</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <main id="main">
+    <!-- ============ Hero ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+            <p class="eyebrow">Est. 2008 &bull; Board Certified Attorneys</p>
+            <h1 id="hero-title">Justice Served with <em>Excellence</em></h1>
+            <p class="lede">Prestigious representation for individuals and businesses. Over 2,500 cases successfully resolved with multimillion-dollar verdicts and settlements.</p>
+            <div class="hero-actions">
+                <a href="#consultation" class="btn btn-gold">Get Free Consultation</a>
+                <a href="tel:+15551234567" class="btn btn-outline-light">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+                    (555) 123-4567
+                </a>
+            </div>
+            <div class="hero-stats" role="list">
+                <div class="stat" role="listitem"><b>98%</b><span>Client Satisfaction</span></div>
+                <div class="stat" role="listitem"><b>$185M+</b><span>Recovered for Clients</span></div>
+                <div class="stat" role="listitem"><b>75+</b><span>Years Combined Experience</span></div>
             </div>
         </div>
-        
-        <!-- Trust bar -->
-        <div class="position-absolute bottom-0 start-0 end-0 bg-black bg-opacity-75 py-3">
+        <div class="trust-bar">
             <div class="container">
-                <div class="row align-items-center justify-content-center g-4 text-center">
-                    <div class="col-auto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/ABA_Logo.svg/2560px-ABA_Logo.svg.png" alt="ABA" height="28"></div>
-                    <div class="col-auto"><span class="text-light">Super Lawyers</span></div>
-                    <div class="col-auto"><span class="text-light">AV Preeminent</span></div>
-                    <div class="col-auto"><span class="text-light">Martindale-Hubbell</span></div>
-                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/ABA_Logo.svg/2560px-ABA_Logo.svg.png" alt="American Bar Association" height="26">
+                <span class="dot" aria-hidden="true"></span>
+                <span>Super Lawyers</span>
+                <span class="dot" aria-hidden="true"></span>
+                <span>AV Preeminent</span>
+                <span class="dot" aria-hidden="true"></span>
+                <span>Martindale-Hubbell</span>
             </div>
         </div>
     </section>
 
-    <!-- CREDIBILITY -->
-    <section class="py-5 bg-black">
+    <!-- ============ Stats bar ============ -->
+    <section class="stats-bar" aria-label="Firm statistics">
         <div class="container">
-            <div class="row text-center g-5" data-aos="fade-up">
-                <div class="col-md-3 col-6">
-                    <div class="stat-number" data-count="18">0</div>
-                    <p class="mb-0 text-light">Years of Excellence</p>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="stat-number" data-count="2500">0</div>
-                    <p class="mb-0 text-light">Cases Handled</p>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="stat-number" data-count="185">0</div>
-                    <p class="mb-0 text-light">Million Recovered</p>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="stat-number" data-count="42">0</div>
-                    <p class="mb-0 text-light">Attorneys & Staff</p>
-                </div>
+            <div class="stats-grid">
+                <div class="reveal"><div class="num"><span class="stat-number" data-target="18" data-format="plain">0</span></div><div class="lbl">Years of Excellence</div></div>
+                <div class="reveal"><div class="num"><span class="stat-number" data-target="2500" data-format="comma">0</span></div><div class="lbl">Cases Handled</div></div>
+                <div class="reveal"><div class="num"><span class="stat-number" data-target="185" data-format="money">0</span></div><div class="lbl">Million Recovered</div></div>
+                <div class="reveal"><div class="num"><span class="stat-number" data-target="42" data-format="plain">0</span></div><div class="lbl">Attorneys &amp; Staff</div></div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="py-5" style="background: var(--secondary-bg);">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <img src="https://picsum.photos/id/1016/800/600" class="img-fluid rounded shadow" alt="Prestige Legal Group Office">
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <span class="badge bg-warning text-dark">SINCE 2008</span>
-                    <h2 class="display-5 fw-bold mb-4">A Legacy of Legal Excellence</h2>
-                    <p class="lead mb-4">
-                        Prestige Legal Group was founded on the principle that every client deserves world-class representation delivered with compassion and integrity.
-                    </p>
-                    <p>
-                        Our team of highly credentialed attorneys has secured landmark victories across multiple practice areas. We combine aggressive advocacy with strategic counsel to achieve the best possible outcomes.
-                    </p>
-                    <div class="mt-5">
-                        <a href="#" class="btn btn-outline-light">Meet Our Leadership →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRACTICE AREAS -->
-    <section id="practice" class="py-5">
+    <!-- ============ About ============ -->
+    <section id="about" aria-labelledby="about-title">
         <div class="container">
-            <div class="text-center mb-5">
-                <span class="badge bg-dark text-warning px-4 py-2">EXPERTISE</span>
-                <h2 class="display-5 fw-bold gold-text">Practice Areas</h2>
+            <div class="about-grid">
+                <div class="about-media reveal">
+                    <img src="https://picsum.photos/id/1016/800/600" alt="Prestige Legal Group Office" width="800" height="600" loading="lazy">
+                </div>
+                <div class="about-copy reveal">
+                    <p class="eyebrow">Since 2008</p>
+                    <h2 id="about-title">A Legacy of Legal Excellence</h2>
+                    <p class="lede">Prestige Legal Group was founded on the principle that every client deserves world-class representation delivered with compassion and integrity.</p>
+                    <p>Our team of highly credentialed attorneys has secured landmark victories across multiple practice areas. We combine aggressive advocacy with strategic counsel to achieve the best possible outcomes.</p>
+                    <a href="#attorneys" class="btn btn-outline-navy">Meet Our Leadership &rarr;</a>
+                </div>
             </div>
-            
-            <div class="row g-4">
-                <!-- Card 1 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                    <div class="practice-card h-100 p-5 rounded-4 text-center">
-                        <i class="fas fa-car-crash fa-3x mb-4 gold-text"></i>
-                        <h4>Personal Injury</h4>
-                        <p class="text-light">Maximum compensation for accident victims and catastrophic injuries.</p>
-                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- ============ Practice areas ============ -->
+    <section id="practice" class="practice" aria-labelledby="practice-title">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow">Expertise</p>
+                <h2 id="practice-title">Practice Areas</h2>
+            </div>
+            <div class="practice-grid">
+                <article class="practice-card reveal">
+                    <div class="practice-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16 6.5 9.5A2 2 0 0 1 8.4 8h7.2a2 2 0 0 1 1.9 1.5L19 16"/><path d="M3 16h18v3.5a1 1 0 0 1-1 1h-1.5a1 1 0 0 1-1-1V19h-11v.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V16z"/><circle cx="7.5" cy="16.5" r="1.4"/><circle cx="16.5" cy="16.5" r="1.4"/></svg>
                     </div>
-                </div>
-                
-                <!-- Card 2 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="practice-card h-100 p-5 rounded-4 text-center">
-                        <i class="fas fa-users fa-3x mb-4 gold-text"></i>
-                        <h4>Family Law</h4>
-                        <p class="text-light">Divorce, custody, support, and prenuptial agreements handled with sensitivity.</p>
-                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <h3>Personal Injury</h3>
+                    <p>Maximum compensation for accident victims and catastrophic injuries.</p>
+                    <a href="#consultation" class="more">Learn More</a>
+                </article>
+                <article class="practice-card reveal">
+                    <div class="practice-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.6c2.3.3 4.1 1.9 4.6 4.4"/></svg>
                     </div>
-                </div>
-                
-                <!-- Card 3 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="practice-card h-100 p-5 rounded-4 text-center">
-                        <i class="fas fa-gavel fa-3x mb-4 gold-text"></i>
-                        <h4>Criminal Defense</h4>
-                        <p class="text-light">Aggressive defense against all felony and misdemeanor charges.</p>
-                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <h3>Family Law</h3>
+                    <p>Divorce, custody, support, and prenuptial agreements handled with sensitivity.</p>
+                    <a href="#consultation" class="more">Learn More</a>
+                </article>
+                <article class="practice-card reveal">
+                    <div class="practice-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3"/><path d="m6.5 5.5 1.8 1.4M17.5 5.5l-1.8 1.4"/><path d="M8 10.5 4.5 13h15L16 10.5"/><path d="M12 10.5V15"/><path d="M7 17.5h10l1.5 2.5h-13L7 17.5z"/></svg>
                     </div>
-                </div>
-                
-                <!-- Additional cards (truncated for brevity but full in real template) -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                    <div class="practice-card h-100 p-5 rounded-4 text-center">
-                        <i class="fas fa-passport fa-3x mb-4 gold-text"></i>
-                        <h4>Immigration Law</h4>
-                        <p class="text-light">Visas, green cards, deportation defense, and citizenship applications.</p>
-                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <h3>Criminal Defense</h3>
+                    <p>Aggressive defense against all felony and misdemeanor charges.</p>
+                    <a href="#consultation" class="more">Learn More</a>
+                </article>
+                <article class="practice-card reveal">
+                    <div class="practice-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.7 2.6 4 5.6 4 9s-1.3 6.4-4 9c-2.7-2.6-4-5.6-4-9s1.3-6.4 4-9z"/></svg>
                     </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="practice-card h-100 p-5 rounded-4 text-center">
-                        <i class="fas fa-briefcase fa-3x mb-4 gold-text"></i>
-                        <h4>Business &amp; Corporate</h4>
-                        <p class="text-light">Contracts, mergers, compliance, and business litigation.</p>
-                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <h3>Immigration Law</h3>
+                    <p>Visas, green cards, deportation defense, and citizenship applications.</p>
+                    <a href="#consultation" class="more">Learn More</a>
+                </article>
+                <article class="practice-card reveal">
+                    <div class="practice-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12.5" rx="2"/><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5M3 12.5h18"/></svg>
                     </div>
+                    <h3>Business &amp; Corporate</h3>
+                    <p>Contracts, mergers, compliance, and business litigation.</p>
+                    <a href="#consultation" class="more">Learn More</a>
+                </article>
+                <article class="practice-card reveal">
+                    <div class="practice-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 11 8.5-7 8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5.5h4V20"/></svg>
+                    </div>
+                    <h3>Real Estate Law</h3>
+                    <p>Transactions, disputes, landlord-tenant, and property development.</p>
+                    <a href="#consultation" class="more">Learn More</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ Why choose us ============ -->
+    <section class="why on-navy" aria-labelledby="why-title">
+        <div class="container">
+            <div class="why-grid">
+                <div class="reveal">
+                    <p class="eyebrow">Why Prestige</p>
+                    <h2 id="why-title">Why Clients Trust Prestige Legal Group</h2>
+                    <ol class="why-list">
+                        <li>
+                            <span class="n" aria-hidden="true">01</span>
+                            <div><h3>Proven Results</h3><p>Consistent multimillion-dollar verdicts and settlements.</p></div>
+                        </li>
+                        <li>
+                            <span class="n" aria-hidden="true">02</span>
+                            <div><h3>Personalized Strategy</h3><p>Every case receives a custom-tailored legal approach.</p></div>
+                        </li>
+                        <li>
+                            <span class="n" aria-hidden="true">03</span>
+                            <div><h3>Transparent Communication</h3><p>You are always informed. No hidden fees. No surprises.</p></div>
+                        </li>
+                    </ol>
                 </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="practice-card h-100 p-5 rounded-4 text-center">
-                        <i class="fas fa-home fa-3x mb-4 gold-text"></i>
-                        <h4>Real Estate Law</h4>
-                        <p class="text-light">Transactions, disputes, landlord-tenant, and property development.</p>
-                        <a href="#" class="text-warning text-decoration-none">Learn More <i class="fas fa-arrow-right"></i></a>
+                <div class="why-cards reveal">
+                    <div class="why-card">
+                        <h3>Board Certified</h3>
+                        <p>Our attorneys hold the highest professional certifications in their fields.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>24/7 Availability</h3>
+                        <p>Emergency legal support when you need it most.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHY CHOOSE US -->
-    <section class="py-5" style="background: #0F172A;">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-5" data-aos="fade-right">
-                    <h2 class="display-5 fw-bold">Why Clients Trust Prestige Legal Group</h2>
-                    <div class="mt-4">
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0 me-4">
-                                <span class="badge bg-success rounded-circle p-3">1</span>
+    <!-- ============ Attorneys ============ -->
+    <section id="attorneys" aria-labelledby="attorneys-title">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow">Our Team</p>
+                <h2 id="attorneys-title">Our Distinguished Attorneys</h2>
+            </div>
+            <div class="attorney-grid">
+                <article class="attorney-card reveal">
+                    <img src="https://picsum.photos/id/64/400/400" alt="Elena Vasquez" width="400" height="400" loading="lazy">
+                    <div class="body">
+                        <h3>Elena M. Vasquez</h3>
+                        <p class="role">Managing Partner &bull; Personal Injury</p>
+                        <p class="cred">Harvard Law &bull; 19 years &bull; AV Preeminent Rating</p>
+                        <a href="#consultation" class="btn btn-outline-navy btn-sm">View Profile</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ Case results ============ -->
+    <section id="results" class="results" aria-labelledby="results-title">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow">Track Record</p>
+                <h2 id="results-title">Notable Results</h2>
+            </div>
+            <div class="results-grid">
+                <div class="reveal"><div class="amount">$42.8M</div><p>Wrongful Death Verdict</p></div>
+                <div class="reveal"><div class="amount">$18.5M</div><p>Catastrophic Injury Settlement</p></div>
+                <div class="reveal"><div class="amount">Not Guilty</div><p>Federal Fraud Charges</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ Process ============ -->
+    <section aria-labelledby="process-title">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow">How We Work</p>
+                <h2 id="process-title">Our Proven Legal Process</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step reveal">
+                    <div class="circle" aria-hidden="true">01</div>
+                    <h3>Free Consultation</h3>
+                </div>
+                <div class="process-step reveal">
+                    <div class="circle" aria-hidden="true">02</div>
+                    <h3>Case Investigation</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ Testimonials ============ -->
+    <section class="testimonials" aria-labelledby="testimonials-title">
+        <div class="container">
+            <div class="section-head center reveal">
+                <p class="eyebrow">Client Voices</p>
+                <h2 id="testimonials-title">What Our Clients Say</h2>
+            </div>
+            <div class="t-carousel reveal" id="tCarousel">
+                <div class="t-viewport">
+                    <div class="t-track" id="tTrack">
+                        <figure class="t-slide">
+                            <blockquote class="t-card">
+                                <div class="t-stars" aria-label="Rated 5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="t-quote">&ldquo;They fought for me like family. Recovered more than I ever imagined possible.&rdquo;</p>
+                                <figcaption class="t-who"><strong>Michael R.</strong><span>Car Accident Victim</span></figcaption>
+                            </blockquote>
+                        </figure>
+                    </div>
+                </div>
+                <div class="t-controls">
+                    <button class="t-arrow" type="button" id="tPrev" aria-label="Previous testimonial" disabled>&larr;</button>
+                    <div class="t-dots" id="tDots" role="tablist" aria-label="Choose testimonial"></div>
+                    <button class="t-arrow" type="button" id="tNext" aria-label="Next testimonial" disabled>&rarr;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ Consultation ============ -->
+    <section id="consultation" aria-labelledby="consultation-title">
+        <div class="container">
+            <div class="consult-wrap reveal">
+                <div class="consult-card">
+                    <div class="section-head center">
+                        <p class="eyebrow">Free Consultation</p>
+                        <h2 id="consultation-title">Schedule Your Free Consultation</h2>
+                    </div>
+                    <form id="consultForm" novalidate>
+                        <div class="form-grid">
+                            <div class="field">
+                                <label for="fName">Full Name <span class="req" aria-hidden="true">*</span></label>
+                                <input type="text" id="fName" name="name" autocomplete="name" required aria-describedby="fNameError" placeholder="Your full name">
+                                <span class="field-error" id="fNameError">Please enter your full name.</span>
                             </div>
-                            <div>
-                                <h5>Proven Results</h5>
-                                <p class="text-light">Consistent multimillion-dollar verdicts and settlements.</p>
+                            <div class="field">
+                                <label for="fPhone">Phone Number <span class="req" aria-hidden="true">*</span></label>
+                                <input type="tel" id="fPhone" name="phone" autocomplete="tel" required aria-describedby="fPhoneError" placeholder="(555) 123-4567">
+                                <span class="field-error" id="fPhoneError">Please enter a valid phone number.</span>
+                            </div>
+                            <div class="field full">
+                                <label for="fMessage">Brief description of your legal matter</label>
+                                <textarea id="fMessage" name="message" rows="4" placeholder="Tell us briefly about your situation"></textarea>
                             </div>
                         </div>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0 me-4">
-                                <span class="badge bg-success rounded-circle p-3">2</span>
-                            </div>
-                            <div>
-                                <h5>Personalized Strategy</h5>
-                                <p class="text-light">Every case receives a custom-tailored legal approach.</p>
-                            </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-gold">Request Consultation Now</button>
                         </div>
-                        <div class="d-flex">
-                            <div class="flex-shrink-0 me-4">
-                                <span class="badge bg-success rounded-circle p-3">3</span>
-                            </div>
-                            <div>
-                                <h5>Transparent Communication</h5>
-                                <p class="text-light">You are always informed. No hidden fees. No surprises.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-7" data-aos="fade-left">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="p-4 border border-warning border-opacity-25 rounded-3 h-100">
-                                <h5 class="gold-text">Board Certified</h5>
-                                <p>Our attorneys hold the highest professional certifications in their fields.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-4 border border-warning border-opacity-25 rounded-3 h-100">
-                                <h5 class="gold-text">24/7 Availability</h5>
-                                <p>Emergency legal support when you need it most.</p>
-                            </div>
-                        </div>
+                        <p class="form-note">No obligation. Your information stays confidential.</p>
+                    </form>
+                    <div class="form-success" id="formSuccess" hidden>
+                        <div class="check" aria-hidden="true">&#10003;</div>
+                        <h3>Thank you!</h3>
+                        <p>Our legal team will contact you within 15 minutes.</p>
+                        <p class="demo-note">Demo form &mdash; your details were not sent anywhere.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ATTORNEYS -->
-    <section id="attorneys" class="py-5 bg-black">
+    <!-- ============ FAQ ============ -->
+    <section class="faq" aria-labelledby="faq-title">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Our Distinguished Attorneys</h2>
+            <div class="section-head center reveal">
+                <p class="eyebrow">Good To Know</p>
+                <h2 id="faq-title">Frequently Asked Questions</h2>
             </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in">
-                    <div class="card bg-transparent border-0">
-                        <img src="https://picsum.photos/id/64/400/400" class="card-img-top rounded-4" alt="Elena Vasquez">
-                        <div class="card-body text-center">
-                            <h5 class="gold-text">Elena M. Vasquez</h5>
-                            <p class="text-light">Managing Partner • Personal Injury</p>
-                            <p class="small">Harvard Law • 19 years • AV Preeminent Rating</p>
-                            <a href="#" class="btn btn-sm btn-outline-warning">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- More attorney cards would go here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- CASE RESULTS -->
-    <section id="results" class="py-5" style="background: var(--secondary-bg);">
-        <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">Notable Results</h2>
-            <div class="row g-4 text-center">
-                <div class="col-md-4">
-                    <div class="p-5">
-                        <div class="display-4 gold-text fw-bold">$42.8M</div>
-                        <p class="text-light">Wrongful Death Verdict</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-5">
-                        <div class="display-4 gold-text fw-bold">$18.5M</div>
-                        <p class="text-light">Catastrophic Injury Settlement</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-5">
-                        <div class="display-4 gold-text fw-bold">Not Guilty</div>
-                        <p class="text-light">Federal Fraud Charges</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5 gold-text">Our Proven Legal Process</h2>
-            <div class="row text-center">
-                <div class="col-md-2 col-6 mb-5">
-                    <div class="rounded-circle border border-warning border-3 mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px;">
-                        <span class="fs-2 fw-bold">01</span>
-                    </div>
-                    <h6>Free Consultation</h6>
-                </div>
-                <div class="col-md-2 col-6 mb-5">
-                    <div class="rounded-circle border border-warning border-3 mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px;">
-                        <span class="fs-2 fw-bold">02</span>
-                    </div>
-                    <h6>Case Investigation</h6>
-                </div>
-                <!-- Continue for all 5 steps -->
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="py-5 bg-black">
-        <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">What Our Clients Say</h2>
-            <div id="testimonialCarousel" class="carousel slide">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="testimonial-card p-5 rounded-4 text-center">
-                                    <div class="mb-4">★★★★★</div>
-                                    <p class="fs-5 fst-italic">"They fought for me like family. Recovered more than I ever imagined possible."</p>
-                                    <div class="mt-4">
-                                        <strong>Michael R.</strong><br>
-                                        <small class="text-light">Car Accident Victim</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONSULTATION -->
-    <section id="consultation" class="py-5" style="background: linear-gradient(135deg, #1E293B, #0F172A);">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="card bg-dark border-0 shadow-lg">
-                        <div class="card-body p-5">
-                            <h2 class="text-center mb-4">Schedule Your Free Consultation</h2>
-                            <form id="consultForm">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control bg-transparent border-light text-light" placeholder="Full Name" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="tel" class="form-control bg-transparent border-light text-light" placeholder="Phone Number" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea class="form-control bg-transparent border-light text-light" rows="4" placeholder="Brief description of your legal matter"></textarea>
-                                    </div>
-                                    <div class="col-12 text-center">
-                                        <button type="submit" class="btn btn-gold btn-lg px-5">REQUEST CONSULTATION NOW</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="text-center display-5 fw-bold mb-5">Frequently Asked Questions</h2>
-            <div class="accordion" id="faqAccordion">
-                <!-- FAQ items here -->
-                <div class="accordion-item bg-transparent border-warning border-opacity-25">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+            <div class="faq-list">
+                <div class="faq-item open">
+                    <h3>
+                        <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a1" id="faq-q1">
                             Is the initial consultation really free?
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
-                    </h2>
-                    <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body text-light">
-                            Yes. We offer completely complimentary case evaluations with no obligation.
+                    </h3>
+                    <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                        <div class="faq-a-inner">
+                            <p>Yes. We offer completely complimentary case evaluations with no obligation.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-black text-light py-5">
+    <!-- ============ Footer ============ -->
+    <footer class="site-footer" id="contact">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <h4 class="gold-text">Prestige Legal Group</h4>
-                    <p class="small">Elite legal representation across the United States.</p>
-                    <p class="small">(555) 123-4567<br>hello@prestigelegal.group</p>
+            <div class="footer-grid">
+                <div>
+                    <h4>Prestige Legal Group</h4>
+                    <p>Elite legal representation across the United States.</p>
+                    <p><a href="tel:+15551234567">(555) 123-4567</a><br><a href="mailto:hello@prestigelegal.group">hello@prestigelegal.group</a></p>
                 </div>
-                <div class="col-lg-2">
-                    <h6 class="mb-3">Practice Areas</h6>
-                    <ul class="list-unstyled small">
-                        <li><a href="#" class="text-light text-decoration-none">Personal Injury</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Family Law</a></li>
+                <div>
+                    <h5>Practice Areas</h5>
+                    <ul class="footer-links">
+                        <li><a href="#practice">Personal Injury</a></li>
+                        <li><a href="#practice">Family Law</a></li>
+                        <li><a href="#practice">Criminal Defense</a></li>
+                        <li><a href="#practice">Immigration Law</a></li>
+                        <li><a href="#practice">Business &amp; Corporate</a></li>
+                        <li><a href="#practice">Real Estate Law</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-6 text-end">
-                    <p class="small">© 2026 Prestige Legal Group. All Rights Reserved.<br>
-                    <a href="#" class="text-light text-decoration-none">Privacy Policy</a> • 
-                    <a href="#" class="text-light text-decoration-none">Attorney Advertising</a></p>
+                <div>
+                    <h5>About the Firm</h5>
+                    <p>Prestige Legal Group was founded on the principle that every client deserves world-class representation delivered with compassion and integrity.</p>
                 </div>
+            </div>
+            <div class="footer-base">
+                <span>&copy; 2026 Prestige Legal Group. All Rights Reserved.</span>
+                <span><a href="#">Privacy Policy</a> &nbsp;&bull;&nbsp; <a href="#">Attorney Advertising</a></span>
             </div>
         </div>
     </footer>
 
-    <!-- STICKY CTA -->
-    <a href="#consultation" class="sticky-cta d-none d-lg-flex align-items-center gap-2 shadow">
-        <i class="fas fa-calendar-check"></i>
-        <span>FREE CONSULTATION</span>
+    <!-- ============ Sticky CTA ============ -->
+    <a href="#consultation" class="sticky-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+        <span>Free Consultation</span>
     </a>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-        
-        // Counter animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-count'));
-                let count = 0;
-                const increment = target / 60;
-                
-                const timer = setInterval(() => {
-                    count += increment;
-                    if (count >= target) {
-                        counter.textContent = target + (target > 100 ? 'M+' : '+');
-                        clearInterval(timer);
-                    } else {
-                        counter.textContent = Math.floor(count);
-                    }
-                }, 30);
+    (function () {
+        'use strict';
+
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* ---------- Mobile nav ---------- */
+        var navToggle = document.querySelector('.nav-toggle');
+        var siteNav = document.getElementById('siteNav');
+        if (navToggle && siteNav) {
+            navToggle.addEventListener('click', function () {
+                var open = siteNav.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            siteNav.addEventListener('click', function (e) {
+                if (e.target.closest('a')) {
+                    siteNav.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
             });
         }
-        
-        // Trigger counters when scrolled into view
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                animateCounters();
-            }
-        });
-        
-        // Form submission simulation
-        document.getElementById('consultForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert("Thank you! Our legal team will contact you within 15 minutes.");
-        });
-        
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href').length > 1) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
+
+        /* ---------- Reveal on scroll (replaces AOS) ---------- */
+        var revealEls = document.querySelectorAll('.reveal');
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+            revealEls.forEach(function (el) { el.classList.add('in'); });
+        } else {
+            var revealObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in');
+                        revealObserver.unobserve(entry.target);
                     }
+                });
+            }, { threshold: 0.12 });
+            revealEls.forEach(function (el) { revealObserver.observe(el); });
+        }
+
+        /* ---------- Animated stat counters ---------- */
+        function formatStat(value, format) {
+            if (format === 'comma') return value.toLocaleString('en-US');
+            if (format === 'money') return '$' + value + 'M';
+            return String(value);
+        }
+        var counters = document.querySelectorAll('.stat-number');
+        function animateCounter(el) {
+            var target = parseInt(el.getAttribute('data-count') || el.getAttribute('data-target'), 10);
+            var format = el.getAttribute('data-format') || 'plain';
+            if (isNaN(target)) return;
+            if (prefersReducedMotion) { el.textContent = formatStat(target, format); return; }
+            var start = null, duration = 1200;
+            function tick(now) {
+                if (!start) start = now;
+                var p = Math.min((now - start) / duration, 1);
+                var eased = 1 - Math.pow(1 - p, 3);
+                el.textContent = formatStat(Math.round(target * eased), format);
+                if (p < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+        if ('IntersectionObserver' in window) {
+            var counterObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(function (el) { counterObserver.observe(el); });
+        } else {
+            counters.forEach(animateCounter);
+        }
+
+        /* ---------- FAQ accordion (vanilla) ---------- */
+        document.querySelectorAll('.faq-item').forEach(function (item) {
+            var btn = item.querySelector('.faq-q');
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                var isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item.open').forEach(function (other) {
+                    other.classList.remove('open');
+                    var otherBtn = other.querySelector('.faq-q');
+                    if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
                 }
             });
         });
-        
-        console.log('%cPrestige Legal Group Template Loaded Successfully', 'color:#D4AF37; font-size:14px; font-family:monospace');
+
+        /* ---------- Testimonial carousel (vanilla) ---------- */
+        var track = document.getElementById('tTrack');
+        var prevBtn = document.getElementById('tPrev');
+        var nextBtn = document.getElementById('tNext');
+        var dotsWrap = document.getElementById('tDots');
+        if (track && prevBtn && nextBtn && dotsWrap) {
+            var slides = track.querySelectorAll('.t-slide');
+            var index = 0;
+            slides.forEach(function (_, i) {
+                var dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 't-dot';
+                dot.setAttribute('role', 'tab');
+                dot.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+                dot.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+                dot.addEventListener('click', function () { goTo(i); });
+                dotsWrap.appendChild(dot);
+            });
+            var dots = dotsWrap.querySelectorAll('.t-dot');
+            function goTo(i) {
+                index = (i + slides.length) % slides.length;
+                track.style.transform = 'translateX(-' + (index * 100) + '%)';
+                dots.forEach(function (d, j) { d.setAttribute('aria-current', j === index ? 'true' : 'false'); });
+                var single = slides.length <= 1;
+                prevBtn.disabled = single;
+                nextBtn.disabled = single;
+            }
+            prevBtn.addEventListener('click', function () { goTo(index - 1); });
+            nextBtn.addEventListener('click', function () { goTo(index + 1); });
+            document.getElementById('tCarousel').addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') goTo(index - 1);
+                if (e.key === 'ArrowRight') goTo(index + 1);
+            });
+            goTo(0);
+        }
+
+        /* ---------- Consultation form: validation + success state ---------- */
+        var form = document.getElementById('consultForm');
+        var success = document.getElementById('formSuccess');
+        if (form && success) {
+            var nameInput = document.getElementById('fName');
+            var phoneInput = document.getElementById('fPhone');
+            var nameError = document.getElementById('fNameError');
+            var phoneError = document.getElementById('fPhoneError');
+
+            function setError(input, errorEl, hasError) {
+                input.setAttribute('aria-invalid', hasError ? 'true' : 'false');
+                if (errorEl) errorEl.classList.toggle('show', hasError);
+            }
+            function validName() { return nameInput.value.trim().length >= 2; }
+            function validPhone() { return phoneInput.value.replace(/\D/g, '').length >= 7; }
+
+            nameInput.addEventListener('blur', function () { setError(nameInput, nameError, !validName()); });
+            phoneInput.addEventListener('blur', function () { setError(phoneInput, phoneError, !validPhone()); });
+            nameInput.addEventListener('input', function () { if (validName()) setError(nameInput, nameError, false); });
+            phoneInput.addEventListener('input', function () { if (validPhone()) setError(phoneInput, phoneError, false); });
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var nameOk = validName();
+                var phoneOk = validPhone();
+                setError(nameInput, nameError, !nameOk);
+                setError(phoneInput, phoneError, !phoneOk);
+                if (!nameOk) { nameInput.focus(); return; }
+                if (!phoneOk) { phoneInput.focus(); return; }
+                form.hidden = true;
+                success.hidden = false;
+                success.setAttribute('tabindex', '-1');
+                success.focus();
+            });
+        }
+    })();
     </script>
 </body>
 </html>
